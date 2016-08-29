@@ -240,7 +240,19 @@ Module.directive('dateTime', ['$compile', '$document', '$filter', 'dateTimeConfi
           container.append(picker);
           //          this approach doesn't work
           //          element.before(picker);
-          picker.css({top: element[0].offsetHeight + 'px', display: 'block'});
+
+          // Offset the datepicker to the correct side of the input
+          var offset = element[0].offsetHeight;
+          var curPos = container[0].getBoundingClientRect();
+          var curTop = curPos.top;
+          var screenHeight = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+
+          if(curTop > (screenHeight - 200))
+          {
+            offset = -220;
+          }
+
+          picker.css({top: offset + 'px', display: 'block'});
         }
         picker.bind('mousedown', function (evt) {
           evt.preventDefault();
