@@ -1030,7 +1030,7 @@ $templateCache.put('templates/datepicker.html',
     "        <td colspan=\"7\">\n" +
     "          <span ng-repeat=\"hour in hours\"\n" +
     "                ng-class=\"classes[$index]\"\n" +
-    "                ng-click=\"selectDate(hour)\" ng-bind=\"hour|mFormat:'HH:mm':tz\"></span>\n" +
+    "                ng-click=\"selectDate(hour)\" ng-bind=\"hour|mFormat:'hh a':tz\"></span>\n" +
     "        </td>\n" +
     "      </tr>\n" +
     "      </tbody>\n" +
@@ -1051,7 +1051,7 @@ $templateCache.put('templates/datepicker.html',
     "          <span ng-repeat=\"minute in minutes\"\n" +
     "                ng-class=\"classes[$index]\"\n" +
     "                ng-click=\"selectDate(minute)\"\n" +
-    "                ng-bind=\"minute|mFormat:'HH:mm':tz\"></span>\n" +
+    "                ng-bind=\"minute|mFormat:'hh:mm':tz\"></span>\n" +
     "        </td>\n" +
     "      </tr>\n" +
     "      </tbody>\n" +
