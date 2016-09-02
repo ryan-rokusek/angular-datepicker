@@ -24,10 +24,8 @@ Module.constant('datePickerConfig', {
 //Moment format filter.
 Module.filter('mFormat', function () {
   return function (m, format, tz) {
-    if (!(moment.isMoment(m))) {
-      return moment(m).format(format);
-    }
-    return tz ? moment.tz(m, tz).format(format) : m.format(format);
+    // Based on https://github.com/MaxYari/angular-datepicker/commit/4837c1f5518f07c673d9b5785c5b48244562fbf4
+    return tz ? moment.tz(moment.utc(m), tz).format(format) : moment.tz(moment.utc(m), moment.tz.guess()).format(format);
   };
 });
 
