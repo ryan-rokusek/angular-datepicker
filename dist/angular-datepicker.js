@@ -889,7 +889,7 @@ Module.directive('dateTime', ['$compile', '$document', '$filter', 'dateTimeConfi
           scope.$on('setDate', function (event, date, view) {
             updateInput(event);
             if (dateChange) {
-              dateChange(attrs.ngModel, date);
+              dateChange(ngModel, date);
             }
             if (dismiss && views[views.length - 1] === view) {
               clear();
@@ -1014,7 +1014,7 @@ $templateCache.put('templates/datepicker.html',
     "      </tbody>\n" +
     "    </table>\n" +
     "  </div>\n" +
-    "  <div ng-switch-when=\"hours\">\n" +
+    "  <div class=\"datepicker-hours\" ng-switch-when=\"hours\">\n" +
     "    <table>\n" +
     "      <thead>\n" +
     "      <tr>\n" +
@@ -1027,6 +1027,7 @@ $templateCache.put('templates/datepicker.html',
     "      <tr>\n" +
     "        <td colspan=\"7\">\n" +
     "          <span ng-repeat=\"hour in hours\"\n" +
+    "                ng-class=\"{pm: $index > 11}\"" +
     "                ng-class=\"classes[$index]\"\n" +
     "                ng-click=\"selectDate(hour)\" ng-bind=\"hour|mFormat:'hh a':tz\"></span>\n" +
     "        </td>\n" +
